@@ -47,7 +47,7 @@ class OkHttpCaseViewModel(application: Application) : ResolveResultViewModel(app
                 override fun lookup(hostname: String): List<InetAddress> {
                     val currMills = System.currentTimeMillis()
                     val inetAddresses = mutableListOf<InetAddress>()
-                    resolveSync(host.value)?.apply {
+                    resolveSyncNonBlocking(host.value)?.apply {
                         showResolveResult(this, currMills)
                         processDnsResult(this, inetAddresses)
                         log(

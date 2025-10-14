@@ -72,13 +72,13 @@ open class ResolveResultViewModel(application: Application) : AndroidViewModel(a
     }
 
     /**
-     * 同步获取解析结果
+     * 同步非阻塞获取解析结果
      */
-    fun resolveSync(host: String?): HTTPDNSResult? {
+    fun resolveSyncNonBlocking(host: String?): HTTPDNSResult? {
         if (TextUtils.isEmpty(host)) {
             return null
         }
-        return httpDnsService?.getHttpDnsResultForHostSync(host, RequestIpType.auto)
+        return httpDnsService?.getHttpDnsResultForHostSyncNonBlocking(host, RequestIpType.auto)
     }
 
     /**
