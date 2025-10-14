@@ -184,7 +184,7 @@ class WebViewCaseFragment : BaseFragment<WebViewCaseBinding>() {
             val url = URL(path)
             val currMill = System.currentTimeMillis()
             val result =
-                viewModel.httpDnsService?.getHttpDnsResultForHostSync(url.host, RequestIpType.auto)
+                viewModel.httpDnsService?.getHttpDnsResultForHostSyncNonBlocking(url.host, RequestIpType.auto)
                     ?.apply {
                         log(this@WebViewCaseFragment, this.toString())
                         if (url.host == viewModel.host.value) {

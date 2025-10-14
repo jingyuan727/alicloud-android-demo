@@ -57,7 +57,7 @@ class IPConnCaseViewModel(application: Application) : ResolveResultViewModel(app
 
         val currMill = System.currentTimeMillis()
         //解析
-        val result = httpDnsService?.getHttpDnsResultForHostSync(host, RequestIpType.auto)?.apply {
+        val result = httpDnsService?.getHttpDnsResultForHostSyncNonBlocking(host, RequestIpType.auto)?.apply {
             log(this@IPConnCaseViewModel, this.toString())
             showResolveResult(this, currMill)
         }

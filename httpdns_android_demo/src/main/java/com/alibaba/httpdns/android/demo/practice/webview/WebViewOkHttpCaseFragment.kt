@@ -68,7 +68,7 @@ class WebViewOkHttpCaseFragment : BaseFragment<WebViewCaseBinding>() {
                 override fun lookup(hostname: String): List<InetAddress> {
                     val currMills = System.currentTimeMillis()
                     val inetAddresses = mutableListOf<InetAddress>()
-                    viewModel.resolveSync(hostname)?.apply {
+                    viewModel.resolveSyncNonBlocking(hostname)?.apply {
                         if (hostname == viewModel.host.value) {
                             viewModel.showResolveResult(this, currMills)
                         }
